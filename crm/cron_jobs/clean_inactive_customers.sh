@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# Script to delete inactive customers (no orders since 1 year ago)
-# and log the number of deleted customers.
+# Script to delete customers with no orders since a year ago
+# and log the number of deleted customers with a timestamp.
 
 LOG_FILE="/tmp/customer_cleanup_log.txt"
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
-# Run the Django command inside manage.py shell
 DELETED_COUNT=$(python3 manage.py shell <<EOF
 from datetime import timedelta
 from django.utils import timezone
@@ -18,6 +17,5 @@ print(deleted_count)
 EOF
 )
 
-# Append results to the log file
 echo "[$TIMESTAMP] Deleted $DELETED_COUNT inactive customers" >> "$LOG_FILE"
 
