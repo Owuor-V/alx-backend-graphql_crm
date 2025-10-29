@@ -32,7 +32,6 @@ def generate_crm_report():
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     logging.basicConfig(filename=LOG_FILE, level=logging.INFO)
-
     logging.info(
         f"{timestamp} - Report: {customers} customers, {orders} orders, {revenue} revenue"
     )

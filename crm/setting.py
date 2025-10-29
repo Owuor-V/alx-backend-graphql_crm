@@ -16,3 +16,4 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(day_of_week='mon', hour=6, minute=0),
     },
 }
+
